@@ -1,0 +1,2 @@
+C:\TMP\xna\Golf\BEPUtut\GettingStartedDemo\GettingStartedDemo\Content\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\hjc17_000\Documents\GettingStartedDemo\GettingStartedDemo\Content\obj\x86\Release\GettingStartedDemoContent.contentprojResolveAssemblyReference.cache

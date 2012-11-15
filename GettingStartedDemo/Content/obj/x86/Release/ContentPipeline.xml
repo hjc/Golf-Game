@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline" xmlns:Framework="Microsoft.Xna.Framework" xmlns:Processors="Microsoft.Xna.Framework.Content.Pipeline.Processors">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>cube.fbx</Source>
+      <Name>cube</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\TMP\xna\Golf\BEPUtut\GettingStartedDemo\GettingStartedDemo\bin\x86\Release\Content\cube.xnb</Output>
+      <Time>2012-11-14T10:53:23.9495498-06:00</Time>
+      <Dependency>
+        <Key>obj\x86\Release\cube_0.xml</Key>
+        <Value>2012-11-14T10:53:30.2329092-06:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>playground.fbx</Source>
+      <Name>playground</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\TMP\xna\Golf\BEPUtut\GettingStartedDemo\GettingStartedDemo\bin\x86\Release\Content\playground.xnb</Output>
+      <Time>2012-11-02T00:14:18.6944309-05:00</Time>
+      <Dependency>
+        <Key>obj\x86\Release\playground_0.xml</Key>
+        <Value>2012-11-02T02:38:04.1087764-05:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>cub.fbx</Source>
+      <Name>cub</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\TMP\xna\Golf\BEPUtut\GettingStartedDemo\GettingStartedDemo\bin\x86\Release\Content\cub.xnb</Output>
+      <Time>2012-11-02T01:40:46.510157-05:00</Time>
+      <Dependency>
+        <Key>obj\x86\Release\cub_0.xml</Key>
+        <Value>2012-11-02T02:38:04.3627909-05:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>set1.fbx</Source>
+      <Name>set1</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\TMP\xna\Golf\BEPUtut\GettingStartedDemo\GettingStartedDemo\bin\x86\Release\Content\set1.xnb</Output>
+      <Time>2012-11-02T01:53:36.7762137-05:00</Time>
+      <Dependency>
+        <Key>obj\x86\Release\set1_0.xml</Key>
+        <Value>2012-11-02T02:38:04.6298062-05:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>set2.fbx</Source>
+      <Name>set2</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\TMP\xna\Golf\BEPUtut\GettingStartedDemo\GettingStartedDemo\bin\x86\Release\Content\set2.xnb</Output>
+      <Time>2012-11-02T02:49:09.8458544-05:00</Time>
+      <Dependency>
+        <Key>obj\x86\Release\set2_0.xml</Key>
+        <Value>2012-11-02T02:49:19.6044125-05:00</Value>
+      </Dependency>
+      <Request>C:\TMP\xna\Golf\BEPUtut\GettingStartedDemo\GettingStartedDemo\bin\x86\Release\Content\tex_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Textures\snowman.png</Source>
+      <Name>Textures\snowman</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\TMP\xna\Golf\BEPUtut\GettingStartedDemo\GettingStartedDemo\bin\x86\Release\Content\Textures\snowman.xnb</Output>
+      <Time>2012-11-02T01:37:28.9758587-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\snowman1.png</Source>
+      <Name>Textures\snowman1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\TMP\xna\Golf\BEPUtut\GettingStartedDemo\GettingStartedDemo\bin\x86\Release\Content\Textures\snowman1.xnb</Output>
+      <Time>2012-11-02T01:37:19.767332-05:00</Time>
+    </Item>
+    <Item>
+      <Source>tex.jpg</Source>
+      <Name>tex</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\TMP\xna\Golf\BEPUtut\GettingStartedDemo\GettingStartedDemo\bin\x86\Release\Content\tex.xnb</Output>
+      <Time>2012-11-02T01:42:12.651084-05:00</Time>
+    </Item>
+    <Item>
+      <Source>cube.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Release\cube_0.xml</Output>
+      <Time>2012-11-14T10:53:23.9495498-06:00</Time>
+    </Item>
+    <Item>
+      <Source>playground.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Release\playground_0.xml</Output>
+      <Time>2012-11-02T00:14:18.6944309-05:00</Time>
+    </Item>
+    <Item>
+      <Source>cub.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Release\cub_0.xml</Output>
+      <Time>2012-11-02T01:40:46.510157-05:00</Time>
+    </Item>
+    <Item>
+      <Source>set1.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Release\set1_0.xml</Output>
+      <Time>2012-11-02T01:53:36.7762137-05:00</Time>
+    </Item>
+    <Item>
+      <Source>set2.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Release\set2_0.xml</Output>
+      <Time>2012-11-02T02:49:09.8458544-05:00</Time>
+    </Item>
+    <Item>
+      <Source>tex.jpg</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\TMP\xna\Golf\BEPUtut\GettingStartedDemo\GettingStartedDemo\bin\x86\Release\Content\tex_0.xnb</Output>
+      <Time>2012-11-02T01:42:12.651084-05:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>HiDef</TargetProfile>
+      <BuildConfiguration>Release</BuildConfiguration>
+      <CompressContent>true</CompressContent>
+      <RootDirectory>C:\TMP\xna\Golf\BEPUtut\GettingStartedDemo\GettingStartedDemo\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\TMP\xna\Golf\BEPUtut\GettingStartedDemo\GettingStartedDemo\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\TMP\xna\Golf\BEPUtut\GettingStartedDemo\GettingStartedDemo\Content\obj\x86\Release\</IntermediateDirectory>
+      <OutputDirectory>C:\TMP\xna\Golf\BEPUtut\GettingStartedDemo\GettingStartedDemo\bin\x86\Release\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2010-08-23T12:41:18-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2010-08-23T12:41:18-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2012-08-24T10:27:30.6004866-05:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>
