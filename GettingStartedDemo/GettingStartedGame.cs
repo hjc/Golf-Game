@@ -38,6 +38,7 @@ namespace GettingStartedDemo
         // Robert 1. Add the stuff
         public Model Snowman;
 
+        float elapsedTime = 0;
 #if XBOX360
         /// <summary>
         /// Contains the latest snapshot of the gamepad's input state.
@@ -255,27 +256,32 @@ namespace GettingStartedDemo
             }
 
 #else
-
+            elapsedTime += gameTime.ElapsedGameTime.Milliseconds;
             if (MouseState.LeftButton == ButtonState.Pressed)
             {
-
-                // if mouse is pressed, velocity change
+                
+               // if mouse is pressed, velocity change
 
                // If the user is clicking, start firing some boxes.
                // First, create a new dynamic box at the camera's location.
-               
-                Box toAdd = new Box(Camera.Position, 1, 1, 1, 1);
-                //Set the velocity of the new box to fly in the direction the camera is pointing.
-                //Entities have a whole bunch of properties that can be read from and written to.
-                //Try looking around in the entity's available properties to get an idea of what is available.
-                toAdd.LinearVelocity = Camera.WorldMatrix.Forward * 10;
-                //Add the new box to the simulation.
-                space.Add(toAdd);
+                if(elapsedTime >=1000)
+                {
+                    Box toAdd = new Box(Camera.Position, 1, 1, 1, 1);
+                
+                    //Set the velocity of the new box to fly in the direction the camera is pointing.
+                    //Entities have a whole bunch of properties that can be read from and written to.
+                    //Try looking around in the entity's available properties to get an idea of what is available.
+                    toAdd.LinearVelocity = Camera.WorldMatrix.Forward * 10;
+                    //Add the new box to the simulation.
+                    space.Add(toAdd);
 
-               // Add a graphical representation of the box to the drawable game components.
-                EntityModel model = new EntityModel(toAdd, CubeModel, Matrix.Identity, this);
-                Components.Add(model);
-                toAdd.Tag = model;  //set the object tag of this entity to the model so that it's easy to delete the graphics component later if the entity is removed.
+                   // Add a graphical representation of the box to the drawable game components.
+                    EntityModel model = new EntityModel(toAdd, CubeModel, Matrix.Identity, this);
+                    Components.Add(model);
+                    toAdd.Tag = model;  //set the object tag of this entity to the model so that it's easy to delete the graphics component later if the entity is removed.
+                
+                   elapsedTime = 0;
+                 }
             }
 
 #endif
