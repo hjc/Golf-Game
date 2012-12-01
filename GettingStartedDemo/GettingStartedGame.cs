@@ -125,15 +125,16 @@ namespace GettingStartedDemo
             //Constructors that allow the user to specify a mass create 'dynamic' entiites which fall, bounce around, and generally work like expected.
             //Constructors that have no mass parameter create a create 'kinematic' entities.  These can be thought of as having infinite mass.
             //This box being added is representing the ground, so the width and length are extended and it is kinematic.
-            Box ground = new Box(Vector3.Zero, 30, 1, 30);
+
+            Sphere ground = new Sphere((Vector3.Zero), 1, 30);
             space.Add(ground);
 
 
             //Now that we have something to fall on, make a few more boxes.
             //These need to be dynamic, so give them a mass- in this case, 1 will be fine.
-            space.Add(new Box(new Vector3(0, 4, 0), 1, 1, 1, 1));
-            space.Add(new Box(new Vector3(0, 8, 0), 1, 1, 1, 1));
-            space.Add(new Sphere(new Vector3(3,0,2), 1,1));
+            //space.Add(new Box(new Vector3(0, 4, 0), 1, 1, 1, 1));
+            //space.Add(new Box(new Vector3(0, 8, 0), 1, 1, 1, 1));
+            //space.Add(new Sphere(new Vector3(3,0,2), 1,1));
             //Create a physical environment from a triangle mesh.
             //First, collect the the mesh data from the model using a helper function.
             //This special kind of vertex inherits from the TriangleMeshVertex and optionally includes
@@ -157,7 +158,7 @@ namespace GettingStartedDemo
            
             //Hook an event handler to an entity to handle some game logic.
             //Refer to the Entity Events documentation for more information.
-            Box deleterBox = new Box(new Vector3(5, 2, 0), 3, 3, 3);
+            Sphere deleterBox = new Sphere(new Vector3(5, 2, 0), 3);
             space.Add(deleterBox);
             deleterBox.CollisionInformation.Events.InitialCollisionDetected += HandleCollision;
 
@@ -266,7 +267,7 @@ namespace GettingStartedDemo
                // First, create a new dynamic box at the camera's location.
                 if(elapsedTime >=1000)
                 {
-                    Box toAdd = new Box(Camera.Position, 1, 1, 1, 1);
+                    Sphere toAdd = new Sphere(Camera.Position, 1, 1);
                 
                     //Set the velocity of the new box to fly in the direction the camera is pointing.
                     //Entities have a whole bunch of properties that can be read from and written to.
