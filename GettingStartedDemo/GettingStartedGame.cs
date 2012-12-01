@@ -35,8 +35,14 @@ namespace GettingStartedDemo
         /// Graphical model to use for the environment.
         /// </summary>
         public Model PlaygroundModel;
-        // Robert 1. Add the stuff
-        public Model Snowman;
+
+        /// <summary>
+        /// This manages all of our various levels.
+        /// Will load their models initially and handle cycling through them
+        ///  and loading them into the game.
+        /// Only need one
+        /// </summary>
+        protected LevelManager LevelMan;
 
         float elapsedTime = 0;
 #if XBOX360
@@ -63,6 +69,7 @@ namespace GettingStartedDemo
             graphics.PreferredBackBufferWidth = 800;
             graphics.PreferredBackBufferHeight = 600;
             Content.RootDirectory = "Content";
+            this.LevelMan = new LevelManager(this, this);
         }
 
         /// <summary>
@@ -85,10 +92,14 @@ namespace GettingStartedDemo
         /// </summary>
         /// 
         //add a model to scene - a LoadContent Helper method
-        public void AddModel(Model model) {
+        public void AddModelLevel(Model model, bool isStatic = false) {
             Vector3[] vertices;
             int[] indices;
             TriangleMesh.GetVerticesAndIndicesFromModel(model, out vertices, out indices);
+            
+            
+            //model is static: should not be affected by gravity
+
             //Give the mesh information to a new StaticMesh.  
             //Give it a transformation which scoots it down below the kinematic box entity we created earlier.
             var mesh = new StaticMesh(vertices, indices, new AffineTransform(new Vector3(0, -20, 0)));
@@ -97,7 +108,6 @@ namespace GettingStartedDemo
             space.Add(mesh);
             //Make it visible too.
             Components.Add(new StaticModel(model, mesh.WorldTransform.Matrix, this));
-        
         }
         protected override void LoadContent()
         {
@@ -105,8 +115,6 @@ namespace GettingStartedDemo
             CubeModel = Content.Load<Model>("cube");
 
             PlaygroundModel = Content.Load<Model>("playground");
-            //Robert 2. 
-            Snowman = Content.Load<Model>("set2");
          
             
             //Construct a new space for the physics simulation to occur within.
@@ -151,9 +159,14 @@ namespace GettingStartedDemo
             //space.Add(mesh);
             //Make it visible too.
             //Components.Add(new StaticModel(Snowman, mesh.WorldTransform.Matrix, this));
+            
 
-            //Robert 2 : ADD YOUR PREVIOUSLY DECLARED MODeL HERE using AddModel: 
-            AddModel(Snowman);
+            //Robert 2 : ADD YOUR PREVIOUSLY DECLARED MODeL HERE using AddModelLevel: 
+            //AddModelLevel(Snowman);
+            Model Levels;
+            //Robert 2. 
+            Levels = Content.Load<Model>("holes");
+            AddModelLevel(Levels);
           
            
             //Hook an event handler to an entity to handle some game logic.
@@ -177,7 +190,7 @@ namespace GettingStartedDemo
                     e.Tag = model; //set the object tag of this entity to the model so that it's easy to delete the graphics component later if the entity is removed.
                 }
             }
-
+            //this.LevelMan.setupCurrentLevel();
         }
 
         /// <summary>
@@ -218,45 +231,18 @@ namespace GettingStartedDemo
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-#if XBOX360
-            GamePadState = GamePad.GetState(0);
-#else
+
             KeyboardState = Keyboard.GetState();
             MouseState = Mouse.GetState();
-#endif
             // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed
-#if XBOX360
-                )
-#else
-                || KeyboardState.IsKeyDown(Keys.Escape))
-#endif
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || KeyboardState.IsKeyDown(Keys.Escape))
                 Exit();
 
             //Update the camera.
             Camera.Update((float)gameTime.ElapsedGameTime.TotalSeconds);
 
             #region Block shooting
-#if XBOX360
-            if (GamePadState.Triggers.Right > 0)
-            {
-                //If the user is holding down the trigger, start firing some boxes.
-                //First, create a new dynamic box at the camera's location.
-                Box toAdd = new Box(Camera.Position, 1, 1, 1, 1);
-                //Set the velocity of the new box to fly in the direction the camera is pointing.
-                //Entities have a whole bunch of properties that can be read from and written to.
-                //Try looking around in the entity's available properties to get an idea of what is available.
-                toAdd.LinearVelocity = Camera.WorldMatrix.Forward * 10;
-                //Add the new box to the simulation.
-                space.Add(toAdd);
-            
-                //Add a graphical representation of the box to the drawable game components.
-                EntityModel model = new EntityModel(toAdd, CubeModel, Matrix.Identity, this);
-                Components.Add(model);
-                toAdd.Tag = model;  //set the object tag of this entity to the model so that it's easy to delete the graphics component later if the entity is removed.
-            }
 
-#else
             elapsedTime += gameTime.ElapsedGameTime.Milliseconds;
             if (MouseState.LeftButton == ButtonState.Pressed)
             {
@@ -285,7 +271,6 @@ namespace GettingStartedDemo
                  }
             }
 
-#endif
             #endregion
 
             //Steps the simulation forward one time step.
@@ -305,6 +290,27 @@ namespace GettingStartedDemo
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);
+        }
+
+        /// <summary>
+        /// This is called whenever we need to remove a model or unload a level.
+        /// </summary>
+
+        public void removeModel(ISpaceObject m)
+        {
+            space.Remove(m);
+        }
+
+        //add an object to the space
+        public void addToSpace(ISpaceObject obj)
+        {
+            space.Add(obj);
+        }
+
+        //add a static model to components (easier done here because we have "this")
+        public void addStaticModel(Model m, StaticMesh mesh)
+        {
+            Components.Add(new StaticModel(m, mesh.WorldTransform.Matrix, this));
         }
     }
 }

@@ -117,6 +117,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Camera.cs" />
+    <Compile Include="LevelManager.cs" />
     <Compile Include="StaticModel.cs" />
     <Compile Include="EntityModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
