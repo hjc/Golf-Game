@@ -2,3 +2,4 @@ C:\TMP\xna\Golf\BEPUtut\GettingStartedDemo\GettingStartedDemo\Content\obj\x86\Re
 C:\Users\hjc17_000\Documents\GettingStartedDemo\GettingStartedDemo\Content\obj\x86\Release\GettingStartedDemoContent.contentprojResolveAssemblyReference.cache
 C:\Users\Ray Bigelow\Documents\GitHub\Golf-Game\GettingStartedDemo\Content\obj\x86\Release\ResolveAssemblyReference.cache
 C:\Users\Robert\Documents\GitHub\Golf-Game\GettingStartedDemo\Content\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\Xingyu\Documents\GitHub\Golf-Game\GettingStartedDemo\Content\obj\x86\Release\ResolveAssemblyReference.cache
