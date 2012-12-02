@@ -177,7 +177,7 @@ namespace GettingStartedDemo
             //AddModelLevel(Snowman);
             Model Levels;
             //Robert 2. 
-            Levels = Content.Load<Model>("holes");
+            Levels = Content.Load<Model>("holes1");
             AddModelLevel(Levels);
 
             Matrix[] transforms = new Matrix[Levels.Bones.Count];
@@ -190,9 +190,9 @@ namespace GettingStartedDemo
            
             //Hook an event handler to an entity to handle some game logic.
             //Refer to the Entity Events documentation for more information.
-            Sphere deleterBox = new Sphere(new Vector3(5, 2, 0), 3);
+            /*Sphere deleterBox = new Sphere(new Vector3(5, 2, 0), 3);
             space.Add(deleterBox);
-            deleterBox.CollisionInformation.Events.InitialCollisionDetected += HandleCollision;
+            deleterBox.CollisionInformation.Events.InitialCollisionDetected += HandleCollision;*/
 
 
             //Go through the list of entities in the space and create a graphical representation for them.
@@ -201,7 +201,7 @@ namespace GettingStartedDemo
                 Box box = e as Box;
                 if (box != null) //This won't create any graphics for an entity that isn't a box since the model being used is a box.
                 {
-                    
+                    //Matrix scaling = Matrix.CreateScale(0.1f);
                     Matrix scaling = Matrix.CreateScale(box.Width, box.Height, box.Length); //Since the cube model is 1x1x1, it needs to be scaled to match the size of each individual box.
                     EntityModel model = new EntityModel(e, CubeModel, scaling, this);
                     //Add the drawable game component for this entity to the game.
@@ -272,7 +272,8 @@ namespace GettingStartedDemo
                // First, create a new dynamic box at the camera's location.
                 if(elapsedTime >=1000)
                 {
-                    Sphere toAdd = new Sphere(Camera.Position, 1, 1);
+                    Sphere toAdd = new Sphere(Camera.Position, 0.2f, 1);
+                   
                 
                     //Set the velocity of the new box to fly in the direction the camera is pointing.
                     //Entities have a whole bunch of properties that can be read from and written to.
@@ -282,7 +283,8 @@ namespace GettingStartedDemo
                     space.Add(toAdd);
 
                    // Add a graphical representation of the box to the drawable game components.
-                    EntityModel model = new EntityModel(toAdd, CubeModel, Matrix.Identity, this);
+                    //StaticModel model = new StaticModel(CubeModel, Matrix.CreateScale(0.5f), this);
+                    EntityModel model = new EntityModel(toAdd, CubeModel, Matrix.CreateScale(0.1f), this);
                     Components.Add(model);
                     toAdd.Tag = model;  //set the object tag of this entity to the model so that it's easy to delete the graphics component later if the entity is removed.
                 

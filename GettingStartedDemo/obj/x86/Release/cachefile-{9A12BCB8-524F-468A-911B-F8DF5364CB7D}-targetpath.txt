@@ -8,5 +8,6 @@ Content\Textures\snowman1.xnb
 Content\tex.xnb
 Content\tex_0.xnb
 Content\putter.xnb
+Content\holes1.xnb
 Content\cub.fbx
 Content\set1.fbx

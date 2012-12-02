@@ -94,3 +94,4 @@ C:\Users\Xingyu\Documents\GitHub\Golf-Game\GettingStartedDemo\obj\x86\Release\Mi
 C:\Users\Xingyu\Documents\GitHub\Golf-Game\GettingStartedDemo\obj\x86\Release\GettingStartedDemo.exe
 C:\Users\Xingyu\Documents\GitHub\Golf-Game\GettingStartedDemo\obj\x86\Release\GettingStartedDemo.pdb
 C:\Users\Xingyu\Documents\GitHub\Golf-Game\GettingStartedDemo\bin\x86\Release\Content\putter.xnb
+C:\Users\Xingyu\Documents\GitHub\Golf-Game\GettingStartedDemo\bin\x86\Release\Content\holes1.xnb
