@@ -55,13 +55,14 @@ namespace GettingStartedDemo
             //There are a variety of properties available in the entity, try looking around
             //in the list to familiarize yourself with it.
             Matrix worldMatrix = Transform * entity.WorldTransform;
-
+        
 
             model.CopyAbsoluteBoneTransformsTo(boneTransforms);
             foreach (ModelMesh mesh in model.Meshes)
             {
                 foreach (BasicEffect effect in mesh.Effects)
                 {
+                   
                     effect.World = boneTransforms[mesh.ParentBone.Index] * worldMatrix;
                     effect.View = (Game as GettingStartedGame).Camera.ViewMatrix;
                     effect.Projection = (Game as GettingStartedGame).Camera.ProjectionMatrix;

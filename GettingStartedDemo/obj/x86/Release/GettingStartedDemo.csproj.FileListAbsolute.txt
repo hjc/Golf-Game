@@ -93,3 +93,4 @@ C:\Users\Xingyu\Documents\GitHub\Golf-Game\GettingStartedDemo\obj\x86\Release\Re
 C:\Users\Xingyu\Documents\GitHub\Golf-Game\GettingStartedDemo\obj\x86\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Xingyu\Documents\GitHub\Golf-Game\GettingStartedDemo\obj\x86\Release\GettingStartedDemo.exe
 C:\Users\Xingyu\Documents\GitHub\Golf-Game\GettingStartedDemo\obj\x86\Release\GettingStartedDemo.pdb
+C:\Users\Xingyu\Documents\GitHub\Golf-Game\GettingStartedDemo\bin\x86\Release\Content\putter.xnb

@@ -18,6 +18,11 @@ namespace GettingStartedDemo
     /// </summary>
     public class GettingStartedGame : Microsoft.Xna.Framework.Game
     {
+        //store variables for putting
+
+        //power variables
+        int currentPower = 5;
+        int maxPower = 10;
         GraphicsDeviceManager graphics;
         /// <summary>
         /// World in which the simulation runs.
@@ -35,6 +40,9 @@ namespace GettingStartedDemo
         /// Graphical model to use for the environment.
         /// </summary>
         public Model PlaygroundModel;
+
+        //hold keyboard state for us
+        KeyboardState kbState = Keyboard.GetState();
 
         /// <summary>
         /// This manages all of our various levels.
@@ -69,7 +77,7 @@ namespace GettingStartedDemo
             graphics.PreferredBackBufferWidth = 800;
             graphics.PreferredBackBufferHeight = 600;
             Content.RootDirectory = "Content";
-            this.LevelMan = new LevelManager(this, this);
+            this.LevelMan = new LevelManager();
         }
 
         /// <summary>
@@ -95,6 +103,8 @@ namespace GettingStartedDemo
         public void AddModelLevel(Model model, bool isStatic = false) {
             Vector3[] vertices;
             int[] indices;
+            //Matrix.CreateScale(1.0f);
+            //Matrix.CreateRotationX(MathHelper.PiOver4);
             TriangleMesh.GetVerticesAndIndicesFromModel(model, out vertices, out indices);
             
             
@@ -102,10 +112,12 @@ namespace GettingStartedDemo
 
             //Give the mesh information to a new StaticMesh.  
             //Give it a transformation which scoots it down below the kinematic box entity we created earlier.
-            var mesh = new StaticMesh(vertices, indices, new AffineTransform(new Vector3(0, -20, 0)));
-
+            var mesh = new StaticMesh(vertices, indices, new AffineTransform( new Vector3(0, -20, 0)));
+           
+           
             //Add it to the space!
             space.Add(mesh);
+
             //Make it visible too.
             Components.Add(new StaticModel(model, mesh.WorldTransform.Matrix, this));
         }
@@ -167,6 +179,13 @@ namespace GettingStartedDemo
             //Robert 2. 
             Levels = Content.Load<Model>("holes");
             AddModelLevel(Levels);
+
+            Matrix[] transforms = new Matrix[Levels.Bones.Count];
+            Levels.CopyAbsoluteBoneTransformsTo(transforms);
+
+            Model Putter;
+            Putter = Content.Load<Model>("putter");
+            AddModelLevel(Putter);
           
            
             //Hook an event handler to an entity to handle some game logic.
@@ -272,6 +291,10 @@ namespace GettingStartedDemo
             }
 
             #endregion
+
+            kbState = Keyboard.GetState();
+
+            //add code to increase power, rotate putter
 
             //Steps the simulation forward one time step.
             space.Update();

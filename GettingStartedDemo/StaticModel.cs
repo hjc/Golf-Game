@@ -42,14 +42,18 @@ namespace GettingStartedDemo
 
         public override void Draw(GameTime gameTime)
         {
+           
             model.CopyAbsoluteBoneTransformsTo(boneTransforms);
             foreach (ModelMesh mesh in model.Meshes)
             {
                 foreach (BasicEffect effect in mesh.Effects)
                 {
+                   // effect.World = Matrix.CreateScale(0.1f) * Transform;
+                   // effect.World = Matrix.CreateRotationX(MathHelper.PiOver4) * Transform;
                     effect.World = boneTransforms[mesh.ParentBone.Index] * Transform;
                     effect.View = (Game as GettingStartedGame).Camera.ViewMatrix;
                     effect.Projection = (Game as GettingStartedGame).Camera.ProjectionMatrix;
+                 
                 }
                 mesh.Draw();
             }
