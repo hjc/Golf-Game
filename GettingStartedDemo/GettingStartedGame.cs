@@ -53,6 +53,10 @@ namespace GettingStartedDemo
         protected LevelManager LevelMan;
 
         float elapsedTime = 0;
+        int power;
+
+        SpriteFont spfont;
+        SpriteBatch spbatch;
 #if XBOX360
         /// <summary>
         /// Contains the latest snapshot of the gamepad's input state.
@@ -91,6 +95,8 @@ namespace GettingStartedDemo
             //Setup the camera.
             Camera = new Camera(this, new Vector3(0, 3, 10), 5);
 
+            power = 5;
+
             base.Initialize();
         }
 
@@ -123,6 +129,8 @@ namespace GettingStartedDemo
         }
         protected override void LoadContent()
         {
+            spfont = Content.Load<SpriteFont>(@"Arial");
+            spbatch = new SpriteBatch(graphics.GraphicsDevice);
             //This 1x1x1 cube model will represent the box entities in the space.
             CubeModel = Content.Load<Model>("cube");
 
@@ -263,6 +271,27 @@ namespace GettingStartedDemo
             #region Block shooting
 
             elapsedTime += gameTime.ElapsedGameTime.Milliseconds;
+
+            //power adjustment
+
+            if (elapsedTime >= 250)
+            {
+                if (KeyboardState.IsKeyDown(Keys.Up))
+                {
+                    power++;
+                    if (power > 10)
+                        power = 10;
+                    elapsedTime = 0;
+                }
+                if (KeyboardState.IsKeyDown(Keys.Down))
+                {
+                    power--;
+                    if (power < 1)
+                        power = 1;
+                    elapsedTime = 0;
+                }
+            }
+
             if (MouseState.LeftButton == ButtonState.Pressed)
             {
                 
@@ -313,8 +342,12 @@ namespace GettingStartedDemo
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+            
 
             base.Draw(gameTime);
+            spbatch.Begin();
+            spbatch.DrawString(spfont, "Power: " + power.ToString(), new Vector2(20.0f, 20.0f), Color.Black);
+            spbatch.End();
         }
 
         /// <summary>
