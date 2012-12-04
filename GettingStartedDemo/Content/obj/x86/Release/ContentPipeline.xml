@@ -7,11 +7,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ray Bigelow\Documents\GitHub\Golf-Game\GettingStartedDemo\bin\x86\Release\Content\cube.xnb</Output>
-      <Time>2012-12-03T22:44:33.2806311-06:00</Time>
+      <Output>C:\Users\Hayden\Documents\GitHub\Golf-Game\GettingStartedDemo\bin\x86\Release\Content\cube.xnb</Output>
+      <Time>2012-12-02T21:58:21.7353244-06:00</Time>
       <Dependency>
         <Key>obj\x86\Release\cube_0.xml</Key>
-        <Value>2012-12-03T23:32:32.849328-06:00</Value>
+        <Value>2012-12-04T00:39:28.3654974-06:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -20,11 +20,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ray Bigelow\Documents\GitHub\Golf-Game\GettingStartedDemo\bin\x86\Release\Content\playground.xnb</Output>
-      <Time>2012-12-03T22:44:33.3376343-06:00</Time>
+      <Output>C:\Users\Hayden\Documents\GitHub\Golf-Game\GettingStartedDemo\bin\x86\Release\Content\playground.xnb</Output>
+      <Time>2012-12-02T21:58:21.7723265-06:00</Time>
       <Dependency>
         <Key>obj\x86\Release\playground_0.xml</Key>
-        <Value>2012-12-03T23:32:33.7513796-06:00</Value>
+        <Value>2012-12-04T00:39:28.6515138-06:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -33,11 +33,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ray Bigelow\Documents\GitHub\Golf-Game\GettingStartedDemo\bin\x86\Release\Content\cub.xnb</Output>
-      <Time>2012-12-03T22:44:33.278631-06:00</Time>
+      <Output>C:\Users\Hayden\Documents\GitHub\Golf-Game\GettingStartedDemo\bin\x86\Release\Content\cub.xnb</Output>
+      <Time>2012-12-02T21:58:21.7343243-06:00</Time>
       <Dependency>
         <Key>obj\x86\Release\cub_0.xml</Key>
-        <Value>2012-12-03T23:32:33.9613916-06:00</Value>
+        <Value>2012-12-04T00:39:28.7705206-06:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -46,11 +46,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ray Bigelow\Documents\GitHub\Golf-Game\GettingStartedDemo\bin\x86\Release\Content\set1.xnb</Output>
-      <Time>2012-12-03T22:44:33.3426346-06:00</Time>
+      <Output>C:\Users\Hayden\Documents\GitHub\Golf-Game\GettingStartedDemo\bin\x86\Release\Content\set1.xnb</Output>
+      <Time>2012-12-02T21:58:21.7763267-06:00</Time>
       <Dependency>
         <Key>obj\x86\Release\set1_0.xml</Key>
-        <Value>2012-12-03T23:32:34.1474022-06:00</Value>
+        <Value>2012-12-04T00:39:28.8755266-06:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -59,13 +59,13 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ray Bigelow\Documents\GitHub\Golf-Game\GettingStartedDemo\bin\x86\Release\Content\set2.xnb</Output>
-      <Time>2012-12-03T22:44:33.3446347-06:00</Time>
+      <Output>C:\Users\Hayden\Documents\GitHub\Golf-Game\GettingStartedDemo\bin\x86\Release\Content\set2.xnb</Output>
+      <Time>2012-12-02T21:58:21.7773268-06:00</Time>
       <Dependency>
         <Key>obj\x86\Release\set2_0.xml</Key>
-        <Value>2012-12-03T23:32:34.3644146-06:00</Value>
+        <Value>2012-12-04T00:39:29.004534-06:00</Value>
       </Dependency>
-      <Request>C:\Users\Ray Bigelow\Documents\GitHub\Golf-Game\GettingStartedDemo\bin\x86\Release\Content\tex_0.xnb</Request>
+      <Request>C:\Users\Hayden\Documents\GitHub\Golf-Game\GettingStartedDemo\bin\x86\Release\Content\tex_0.xnb</Request>
     </Item>
     <Item>
       <Source>putter.fbx</Source>
@@ -73,11 +73,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ray Bigelow\Documents\GitHub\Golf-Game\GettingStartedDemo\bin\x86\Release\Content\putter.xnb</Output>
-      <Time>2012-12-03T22:44:33.3386344-06:00</Time>
+      <Output>C:\Users\Hayden\Documents\GitHub\Golf-Game\GettingStartedDemo\bin\x86\Release\Content\putter.xnb</Output>
+      <Time>2012-12-02T21:58:21.7733266-06:00</Time>
       <Dependency>
         <Key>obj\x86\Release\putter_0.xml</Key>
-        <Value>2012-12-03T23:32:35.5744838-06:00</Value>
+        <Value>2012-12-04T00:39:29.5925676-06:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -86,11 +86,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ray Bigelow\Documents\GitHub\Golf-Game\GettingStartedDemo\bin\x86\Release\Content\holes1.xnb</Output>
-      <Time>2012-12-03T22:44:33.2866314-06:00</Time>
+      <Output>C:\Users\Hayden\Documents\GitHub\Golf-Game\GettingStartedDemo\bin\x86\Release\Content\holes1.xnb</Output>
+      <Time>2012-12-02T21:58:21.7393246-06:00</Time>
       <Dependency>
         <Key>obj\x86\Release\holes1_0.xml</Key>
-        <Value>2012-12-03T23:32:35.822498-06:00</Value>
+        <Value>2012-12-04T00:39:29.7425762-06:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -99,8 +99,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ray Bigelow\Documents\GitHub\Golf-Game\GettingStartedDemo\bin\x86\Release\Content\Textures\snowman.xnb</Output>
-      <Time>2012-12-03T22:44:33.3516351-06:00</Time>
+      <Output>C:\Users\Hayden\Documents\GitHub\Golf-Game\GettingStartedDemo\bin\x86\Release\Content\Textures\snowman.xnb</Output>
+      <Time>2012-12-02T21:58:21.7823271-06:00</Time>
     </Item>
     <Item>
       <Source>Textures\snowman1.png</Source>
@@ -108,8 +108,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ray Bigelow\Documents\GitHub\Golf-Game\GettingStartedDemo\bin\x86\Release\Content\Textures\snowman1.xnb</Output>
-      <Time>2012-12-03T22:44:33.3516351-06:00</Time>
+      <Output>C:\Users\Hayden\Documents\GitHub\Golf-Game\GettingStartedDemo\bin\x86\Release\Content\Textures\snowman1.xnb</Output>
+      <Time>2012-12-02T21:58:21.7823271-06:00</Time>
     </Item>
     <Item>
       <Source>tex.jpg</Source>
@@ -117,8 +117,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ray Bigelow\Documents\GitHub\Golf-Game\GettingStartedDemo\bin\x86\Release\Content\tex.xnb</Output>
-      <Time>2012-12-03T22:44:33.348635-06:00</Time>
+      <Output>C:\Users\Hayden\Documents\GitHub\Golf-Game\GettingStartedDemo\bin\x86\Release\Content\tex.xnb</Output>
+      <Time>2012-12-02T21:58:21.780327-06:00</Time>
     </Item>
     <Item>
       <Source>Arial.spritefont</Source>
@@ -126,43 +126,43 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ray Bigelow\Documents\GitHub\Golf-Game\GettingStartedDemo\bin\x86\Release\Content\Arial.xnb</Output>
-      <Time>2012-12-03T22:44:33.2726306-06:00</Time>
+      <Output>C:\Users\Hayden\Documents\GitHub\Golf-Game\GettingStartedDemo\bin\x86\Release\Content\Arial.xnb</Output>
+      <Time>2012-12-03T14:57:32.8382573-06:00</Time>
     </Item>
     <Item>
       <Source>cube.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Release\cube_0.xml</Output>
-      <Time>2012-12-03T22:44:33.2806311-06:00</Time>
+      <Time>2012-12-02T21:58:21.7353244-06:00</Time>
     </Item>
     <Item>
       <Source>playground.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Release\playground_0.xml</Output>
-      <Time>2012-12-03T22:44:33.3376343-06:00</Time>
+      <Time>2012-12-02T21:58:21.7723265-06:00</Time>
     </Item>
     <Item>
       <Source>cub.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Release\cub_0.xml</Output>
-      <Time>2012-12-03T22:44:33.278631-06:00</Time>
+      <Time>2012-12-02T21:58:21.7343243-06:00</Time>
     </Item>
     <Item>
       <Source>set1.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Release\set1_0.xml</Output>
-      <Time>2012-12-03T22:44:33.3426346-06:00</Time>
+      <Time>2012-12-02T21:58:21.7763267-06:00</Time>
     </Item>
     <Item>
       <Source>set2.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Release\set2_0.xml</Output>
-      <Time>2012-12-03T22:44:33.3446347-06:00</Time>
+      <Time>2012-12-02T21:58:21.7773268-06:00</Time>
     </Item>
     <Item>
       <Source>tex.jpg</Source>
@@ -177,22 +177,22 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Ray Bigelow\Documents\GitHub\Golf-Game\GettingStartedDemo\bin\x86\Release\Content\tex_0.xnb</Output>
-      <Time>2012-12-03T22:44:33.348635-06:00</Time>
+      <Output>C:\Users\Hayden\Documents\GitHub\Golf-Game\GettingStartedDemo\bin\x86\Release\Content\tex_0.xnb</Output>
+      <Time>2012-12-02T21:58:21.780327-06:00</Time>
     </Item>
     <Item>
       <Source>putter.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Release\putter_0.xml</Output>
-      <Time>2012-12-03T22:44:33.3386344-06:00</Time>
+      <Time>2012-12-02T21:58:21.7733266-06:00</Time>
     </Item>
     <Item>
       <Source>holes1.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Release\holes1_0.xml</Output>
-      <Time>2012-12-03T22:44:33.2866314-06:00</Time>
+      <Time>2012-12-02T21:58:21.7393246-06:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -200,39 +200,39 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Release</BuildConfiguration>
       <CompressContent>true</CompressContent>
-      <RootDirectory>C:\Users\Ray Bigelow\Documents\GitHub\Golf-Game\GettingStartedDemo\Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Ray Bigelow\Documents\GitHub\Golf-Game\GettingStartedDemo\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Ray Bigelow\Documents\GitHub\Golf-Game\GettingStartedDemo\Content\obj\x86\Release\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Ray Bigelow\Documents\GitHub\Golf-Game\GettingStartedDemo\bin\x86\Release\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Hayden\Documents\GitHub\Golf-Game\GettingStartedDemo\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Hayden\Documents\GitHub\Golf-Game\GettingStartedDemo\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Hayden\Documents\GitHub\Golf-Game\GettingStartedDemo\Content\obj\x86\Release\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Hayden\Documents\GitHub\Golf-Game\GettingStartedDemo\bin\x86\Release\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
-        <Value>2010-08-23T12:41:18-05:00</Value>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2010-08-23T13:41:18-05:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
-        <Value>2010-08-23T12:41:18-05:00</Value>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2010-08-23T13:41:18-05:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
-        <Value>2010-08-23T12:41:18-05:00</Value>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2010-08-23T13:41:18-05:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
-        <Value>2010-08-23T12:41:18-05:00</Value>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2010-08-23T13:41:18-05:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
-        <Value>2010-08-23T12:41:18-05:00</Value>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2010-08-23T13:41:18-05:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
-        <Value>2010-08-23T12:41:18-05:00</Value>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2010-08-23T13:41:18-05:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2012-10-28T10:29:09.3430048-05:00</Value>
+        <Value>2012-12-03T22:46:38.9693101-06:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>
