@@ -132,8 +132,33 @@ namespace GettingStartedDemo
             //Make it visible too.
             Components.Add(new StaticModel(model, mesh.WorldTransform.Matrix, this));
         }
-        protected override void LoadContent()
+
+        public void AddPutter(Model model)
         {
+            Vector3[] vertices;
+            int[] indices;
+            //Matrix.CreateScale(1.0f);
+            //Matrix.CreateRotationX(MathHelper.PiOver4);
+            TriangleMesh.GetVerticesAndIndicesFromModel(model, out vertices, out indices);
+
+
+            //model is static: should not be affected by gravity
+
+            //Give the mesh information to a new StaticMesh.  
+            //Give it a transformation which scoots it down below the kinematic box entity we created earlier.
+            var mesh = new StaticMesh(vertices, indices, new AffineTransform(new Vector3(0, -20, 0)));
+
+
+            //Add it to the space!
+            space.Add(mesh);
+
+            //Make it visible too.
+            Components.Add(new PutterManager(model, Matrix.CreateScale(0.05f) * Matrix.CreateRotationZ(MathHelper.PiOver2) * Matrix.CreateTranslation(new Vector3(1, 1, 1)) * mesh.WorldTransform.Matrix, this));
+        }
+
+         protected override void LoadContent()
+         {
+
             //spfont = Content.Load<SpriteFont>(@"Arial");
             //spbatch = new SpriteBatch(graphics.GraphicsDevice);
             //This 1x1x1 cube model will represent the box entities in the space.
@@ -198,10 +223,10 @@ namespace GettingStartedDemo
 
             Model Putter;
             Putter = Content.Load<Model>("putter");
-            AddModelLevel(Putter);
+            AddPutter(Putter);
           
            
-            //Hook an event handler to an entity to handle some game logic.
+            //Hook an event hModelLevel to an entity to handle some game logic.
             //Refer to the Entity Events documentation for more information.
             /*Sphere deleterBox = new Sphere(new Vector3(5, 2, 0), 3);
             space.Add(deleterBox);
