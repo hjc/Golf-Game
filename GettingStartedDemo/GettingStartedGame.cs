@@ -51,12 +51,12 @@ namespace GettingStartedDemo
         /// Only need one
         /// </summary>
         protected LevelManager LevelMan;
-
+        PowerScore powerscore = new PowerScore();
         float elapsedTime = 0;
         int power;
-
-        SpriteFont spfont;
-        SpriteBatch spbatch;
+        int strokecount;
+        //SpriteFont spfont;
+        //SpriteBatch spbatch;
 #if XBOX360
         /// <summary>
         /// Contains the latest snapshot of the gamepad's input state.
@@ -96,7 +96,12 @@ namespace GettingStartedDemo
             Camera = new Camera(this, new Vector3(0, 3, 10), 5);
 
             power = 5;
+            strokecount = 0;
 
+           
+            powerscore.ShowInTaskbar = false;
+            powerscore.Show();
+            
             base.Initialize();
         }
 
@@ -129,8 +134,8 @@ namespace GettingStartedDemo
         }
         protected override void LoadContent()
         {
-            spfont = Content.Load<SpriteFont>(@"Arial");
-            spbatch = new SpriteBatch(graphics.GraphicsDevice);
+            //spfont = Content.Load<SpriteFont>(@"Arial");
+            //spbatch = new SpriteBatch(graphics.GraphicsDevice);
             //This 1x1x1 cube model will represent the box entities in the space.
             CubeModel = Content.Load<Model>("cube");
 
@@ -268,17 +273,20 @@ namespace GettingStartedDemo
             //Update the camera.
             Camera.Update((float)gameTime.ElapsedGameTime.TotalSeconds);
 
+            
+
             #region Block shooting
 
             elapsedTime += gameTime.ElapsedGameTime.Milliseconds;
 
             //power adjustment
-
-            if (elapsedTime >= 250)
+            powerscore.show_power(power);
+            if (elapsedTime >= 100)
             {
                 if (KeyboardState.IsKeyDown(Keys.Up))
                 {
                     power++;
+                    
                     if (power > 10)
                         power = 10;
                     elapsedTime = 0;
@@ -288,6 +296,7 @@ namespace GettingStartedDemo
                     power--;
                     if (power < 1)
                         power = 1;
+                    
                     elapsedTime = 0;
                 }
             }
@@ -316,13 +325,15 @@ namespace GettingStartedDemo
                     EntityModel model = new EntityModel(toAdd, CubeModel, Matrix.CreateScale(0.1f), this);
                     Components.Add(model);
                     toAdd.Tag = model;  //set the object tag of this entity to the model so that it's easy to delete the graphics component later if the entity is removed.
-                
+
+                    strokecount++;
+                    powerscore.show_stroke(strokecount);
+            
                    elapsedTime = 0;
-                 }
+                }
             }
 
             #endregion
-
             kbState = Keyboard.GetState();
 
             //add code to increase power, rotate putter
@@ -345,9 +356,9 @@ namespace GettingStartedDemo
             
 
             base.Draw(gameTime);
-            spbatch.Begin();
-            spbatch.DrawString(spfont, "Power: " + power.ToString(), new Vector2(20.0f, 20.0f), Color.Black);
-            spbatch.End();
+            //spbatch.Begin();
+            //spbatch.DrawString(spfont, "Power: " + power.ToString(), new Vector2(20.0f, 20.0f), Color.Black);
+            //spbatch.End();
         }
 
         /// <summary>

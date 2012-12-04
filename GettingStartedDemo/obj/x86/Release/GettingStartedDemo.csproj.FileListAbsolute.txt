@@ -95,3 +95,9 @@ C:\Users\Xingyu\Documents\GitHub\Golf-Game\GettingStartedDemo\obj\x86\Release\Ge
 C:\Users\Xingyu\Documents\GitHub\Golf-Game\GettingStartedDemo\obj\x86\Release\GettingStartedDemo.pdb
 C:\Users\Xingyu\Documents\GitHub\Golf-Game\GettingStartedDemo\bin\x86\Release\Content\putter.xnb
 C:\Users\Xingyu\Documents\GitHub\Golf-Game\GettingStartedDemo\bin\x86\Release\Content\holes1.xnb
+C:\Users\Ray Bigelow\Documents\GitHub\Golf-Game\GettingStartedDemo\bin\x86\Release\Content\putter.xnb
+C:\Users\Ray Bigelow\Documents\GitHub\Golf-Game\GettingStartedDemo\bin\x86\Release\Content\holes1.xnb
+C:\Users\Ray Bigelow\Documents\GitHub\Golf-Game\GettingStartedDemo\bin\x86\Release\Content\Arial.xnb
+C:\Users\Ray Bigelow\Documents\GitHub\Golf-Game\GettingStartedDemo\obj\x86\Release\GettingStartedDemo.PowerScore.resources
+C:\Users\Ray Bigelow\Documents\GitHub\Golf-Game\GettingStartedDemo\obj\x86\Release\GenerateResource.read.1.tlog
+C:\Users\Ray Bigelow\Documents\GitHub\Golf-Game\GettingStartedDemo\obj\x86\Release\GenerateResource.write.1.tlog

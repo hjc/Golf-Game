@@ -3,7 +3,7 @@
   <Asset Type="Graphics:NodeContent">
     <Name>RootNode</Name>
     <Identity>
-      <SourceFilename>C:\Users\Xingyu\Documents\GitHub\Golf-Game\GettingStartedDemo\Content\cube.fbx</SourceFilename>
+      <SourceFilename>C:\Users\Ray Bigelow\Documents\GitHub\Golf-Game\GettingStartedDemo\Content\cube.fbx</SourceFilename>
       <SourceTool>FbxImporter</SourceTool>
     </Identity>
     <Transform>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</Transform>
@@ -41,7 +41,7 @@
     <Resource ID="#Resource1" Type="Graphics:BasicMaterialContent">
       <Name>Material_002</Name>
       <Identity>
-        <SourceFilename>C:\Users\Xingyu\Documents\GitHub\Golf-Game\GettingStartedDemo\Content\cube.fbx</SourceFilename>
+        <SourceFilename>C:\Users\Ray Bigelow\Documents\GitHub\Golf-Game\GettingStartedDemo\Content\cube.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -54,7 +54,7 @@
     <Resource ID="#Resource2" Type="Graphics:BasicMaterialContent">
       <Name>Material_003</Name>
       <Identity>
-        <SourceFilename>C:\Users\Xingyu\Documents\GitHub\Golf-Game\GettingStartedDemo\Content\cube.fbx</SourceFilename>
+        <SourceFilename>C:\Users\Ray Bigelow\Documents\GitHub\Golf-Game\GettingStartedDemo\Content\cube.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>

@@ -105,6 +105,9 @@
     <Reference Include="System">
       <Private>False</Private>
     </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml">
       <Private>False</Private>
     </Reference>
@@ -117,6 +120,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Camera.cs" />
+    <Compile Include="PowerScore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PowerScore.Designer.cs">
+      <DependentUpon>PowerScore.cs</DependentUpon>
+    </Compile>
     <Compile Include="LevelManager.cs" />
     <Compile Include="StaticModel.cs" />
     <Compile Include="EntityModel.cs" />
@@ -182,6 +191,11 @@
       <Name>GettingStartedDemoContent %28Content%29</Name>
       <XnaReferenceType>Content</XnaReferenceType>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="PowerScore.resx">
+      <DependentUpon>PowerScore.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
