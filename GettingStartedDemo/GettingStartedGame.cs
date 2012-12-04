@@ -51,6 +51,17 @@ namespace GettingStartedDemo
         /// Only need one
         /// </summary>
         protected LevelManager LevelMan;
+
+        /// <summary>
+        /// Manage our Putter for us. Keep a reference to pass events
+        /// </summary>
+        private PutterManager puttMan;
+
+        /// <summary>
+        /// Putter timer for elapsedTime
+        /// </summary>
+        private float putterElapsed = 1000;
+
         PowerScore powerscore = new PowerScore();
         float elapsedTime = 0;
         int power;
@@ -151,9 +162,9 @@ namespace GettingStartedDemo
 
             //Add it to the space!
             space.Add(mesh);
-
+            this.puttMan = new PutterManager(model, mesh.WorldTransform.Matrix, Matrix.CreateScale(0.05f), Matrix.CreateTranslation(new Vector3(1, 1, 1)), this);
             //Make it visible too.
-            Components.Add(new PutterManager(model, Matrix.CreateScale(0.05f) * Matrix.CreateRotationZ(MathHelper.PiOver2) * Matrix.CreateTranslation(new Vector3(1, 1, 1)) * mesh.WorldTransform.Matrix, this));
+            Components.Add(puttMan);
         }
 
          protected override void LoadContent()
@@ -360,6 +371,18 @@ namespace GettingStartedDemo
 
             #endregion
             kbState = Keyboard.GetState();
+
+            putterElapsed += gameTime.ElapsedGameTime.Milliseconds;
+
+            if (kbState.IsKeyDown(Keys.Space))
+            {
+                if (putterElapsed >= 1000)
+                {
+                    puttMan.StartPushing(1000);
+                    putterElapsed = 0;
+                }
+
+            }
 
             //add code to increase power, rotate putter
 
