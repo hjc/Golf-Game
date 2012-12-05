@@ -9,6 +9,7 @@ using BEPUphysics.Entities;
 using BEPUphysics;
 using BEPUphysics.DataStructures;
 using BEPUphysics.NarrowPhaseSystems.Pairs;
+using BEPUphysics.CollisionShapes;
 
 
 namespace GettingStartedDemo
@@ -40,6 +41,7 @@ namespace GettingStartedDemo
         /// Graphical model to use for the environment.
         /// </summary>
         public Model PlaygroundModel;
+        
 
         //hold keyboard state for us
         KeyboardState kbState = Keyboard.GetState();
@@ -151,20 +153,48 @@ namespace GettingStartedDemo
             //Matrix.CreateScale(1.0f);
             //Matrix.CreateRotationX(MathHelper.PiOver4);
             TriangleMesh.GetVerticesAndIndicesFromModel(model, out vertices, out indices);
-
+            //CapsuleObject
+           
 
             //model is static: should not be affected by gravity
+            //Box putterHead = new Box(new Vector3(1, -13.5f, 2), 4f, 4f, 4f);
+
+            Box putterHead = new Box(new Vector3(1, 1, 1), 4f, 4f, 4f);
+            //StaticMesh putterHead = new StaticMesh(vertices, indices, new AffineTransform(new Vector3(0, -20, 0)));
+
+           // putterHead.IsAffectedByGravity = false;
+            //putterHead.
+
+            //ConvexHull putterHead = new ConvexHull(Vector3.Zero, vertices);
+            
+            //StaticMesh putterHead = new StaticMesh(vertices, indices, new AffineTransform(new Vector3(0, 0, 0)));
+           
+            //putterHead.LinearVelocity = Vector3.Zero;//(5f, 5f, -15f);
+
+            //Sphere putterHead = new Sphere(Vector3.Zero, 1f);
+
+            space.Add(putterHead);
+            //putterHead.BecomeKinematic();
+            //putterHead.CollisionInformation.Events.InitialCollisionDetected += HandleCollision;
 
             //Give the mesh information to a new StaticMesh.  
             //Give it a transformation which scoots it down below the kinematic box entity we created earlier.
-            var mesh = new StaticMesh(vertices, indices, new AffineTransform(new Vector3(0, -20, 0)));
+            //var mesh = new StaticMesh(vertices, indices, new AffineTransform(new Vector3(0, -20, 0)));
 
-
+            
             //Add it to the space!
-            space.Add(mesh);
-            this.puttMan = new PutterManager(model, mesh.WorldTransform.Matrix, Matrix.CreateScale(0.05f), Matrix.CreateTranslation(new Vector3(1, 1, 1)), this);
+            //space.Add(mesh);
+            //this.puttMan = new PutterManager(putterHead, model, mesh.WorldTransform.Matrix, Matrix.CreateScale(0.05f), Matrix.CreateTranslation(new Vector3(1, 1, 1)), this);
+            //this.puttMan = new PutterManager(putterHead, model, Matrix.Identity, Matrix.Identity, Matrix.Identity, this);
+            this.puttMan = new PutterManager(putterHead, model, Matrix.Identity, Matrix.CreateScale(0.05f), Matrix.CreateTranslation(new Vector3(-5f, -5f, -5f)), this);
+            //this.puttMan = new PutterManager(putterHead, model, Matrix.Identity, Matrix.Identity, Matrix.Identity, this);
+
+            //EntityModel em = new EntityModel(putterHead, model, putterHead.WorldTransform, this);
+
+            putterHead.Tag = this.puttMan;
+
             //Make it visible too.
-            Components.Add(puttMan);
+            Components.Add(this.puttMan);
         }
 
          protected override void LoadContent()
@@ -245,7 +275,9 @@ namespace GettingStartedDemo
 
 
             //Go through the list of entities in the space and create a graphical representation for them.
-            foreach (Entity e in space.Entities)
+
+             //dont really need this
+           /* foreach (Entity e in space.Entities)
             {
                 Box box = e as Box;
                 if (box != null) //This won't create any graphics for an entity that isn't a box since the model being used is a box.
@@ -257,7 +289,7 @@ namespace GettingStartedDemo
                     Components.Add(model);
                     e.Tag = model; //set the object tag of this entity to the model so that it's easy to delete the graphics component later if the entity is removed.
                 }
-            }
+            }*/
             //this.LevelMan.setupCurrentLevel();
         }
 
@@ -273,13 +305,15 @@ namespace GettingStartedDemo
             //They aren't always entities; for example, hitting a StaticMesh would trigger this.
             //Entities use EntityCollidables as collision proxies; see if the thing we hit is one.
             var otherEntityInformation = other as EntityCollidable;
-            if (otherEntityInformation != null)
-            {
+
+            //var otherEntityInformation = other as Entity;
+            //if (otherEntityInformation != null)
+            //{
                 //We hit an entity! remove it.
                 space.Remove(otherEntityInformation.Entity); 
                 //Remove the graphics too.
                 Components.Remove((EntityModel)otherEntityInformation.Entity.Tag);
-            }
+            //}
         }
 
 

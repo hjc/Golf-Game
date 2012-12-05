@@ -23,13 +23,15 @@ namespace GettingStartedDemo
         /// Entity that this model follows.
         /// </summary>
         Model model;
+        Entity entity;
         /// <summary>
         /// Base transformation to apply to the model.
         /// </summary>
         public Matrix Transform;
         Matrix[] boneTransforms;
 
-        private float xRot = -MathHelper.PiOver4;
+        //variable to rotate the putter into the right spot
+        private float xRot = 0;
 
         //Matrices for scaling and moving the putter
         private Matrix scaleMat;
@@ -47,6 +49,12 @@ namespace GettingStartedDemo
         private float pushElapsed = 0;
         private float pushRot = 0;
 
+        /// <summary>
+        /// This is used to determine where the putter is and will determine how the
+        ///   putt action is done.
+        /// </summary>
+        private Vector3 forwardPos = new Vector3(0.5f, 0.5f, 0);
+
          /// <summary>
         /// Creates a new EntityModel.
         /// </summary>
@@ -54,9 +62,10 @@ namespace GettingStartedDemo
         /// <param name="model">Graphical representation to use for the entity.</param>
         /// <param name="transform">Base transformation to apply to the model before moving to the entity.</param>
         /// <param name="game">Game to which this component will belong.</param>
-        public PutterManager(Model model, Matrix transform, Matrix scale, Matrix translate, Game game)
+        public PutterManager(Entity entity, Model model, Matrix transform, Matrix scale, Matrix translate, Game game)
             : base(game)
         {
+            this.entity = entity;
             this.model = model;
             this.Transform = transform;
             this.scaleMat = scale;
@@ -85,15 +94,62 @@ namespace GettingStartedDemo
         {
             KeyboardState kbState = Keyboard.GetState();
             if (kbState.IsKeyDown(Keys.Left))
+            {
                 xRot -= 0.01f;
+                //forwardPos.X
+                forwardPos.X += 0.005f;
+                forwardPos.Y -= 0.005f;
+            }
             if (kbState.IsKeyDown(Keys.Right))
+            {
                 xRot += 0.01f;
+                forwardPos.X -= 0.005f;
+                forwardPos.Y += 0.005f;
+            }
             base.Update(gameTime);
         }
+
+        //public override void Draw(GameTime gameTime)
+        //{
+        //    //Notice that the entity's worldTransform property is being accessed here.
+        //    //This property is returns a rigid transformation representing the orientation
+        //    //and translation of the entity combined.
+        //    //There are a variety of properties available in the entity, try looking around
+        //    //in the list to familiarize yourself with it.
+        //    Matrix worldMatrix = Transform * entity.WorldTransform;
+
+
+        //    model.CopyAbsoluteBoneTransformsTo(boneTransforms);
+        //    foreach (ModelMesh mesh in model.Meshes)
+        //    {
+        //        foreach (BasicEffect effect in mesh.Effects)
+        //        {
+
+        //            effect.World = boneTransforms[mesh.ParentBone.Index] * worldMatrix;
+        //            effect.View = (Game as GettingStartedGame).Camera.ViewMatrix;
+        //            effect.Projection = (Game as GettingStartedGame).Camera.ProjectionMatrix;
+        //        }
+        //        mesh.Draw();
+        //    }
+        //    base.Draw(gameTime);
+        //}
 
         public override void Draw(GameTime gameTime)
         {
 
+            Matrix worldMatrix = Transform * entity.WorldTransform;
+
+            //entity.Position;
+            Matrix trans = Matrix.CreateTranslation(entity.Position);
+
+            Matrix w = Matrix.CreateWorld(entity.Position, new Vector3(1, 0, 0), new Vector3(0, 1, 0));
+
+
+
+            Matrix w2 = Matrix.CreateScale(0.05f) * zRotMat * Matrix.CreateTranslation(entity.Position);
+
+            entity.WorldTransform *= Matrix.CreateScale(0.05f);
+            
             model.CopyAbsoluteBoneTransformsTo(boneTransforms);
             foreach (ModelMesh mesh in model.Meshes)
             {
@@ -101,32 +157,35 @@ namespace GettingStartedDemo
                 {
                     // effect.World = Matrix.CreateScale(0.1f) * Transform;
                     // effect.World = Matrix.CreateRotationX(MathHelper.PiOver4) * Transform;
-                    effect.World = boneTransforms[mesh.ParentBone.Index];
-
-                    //now orient the putter right
-                    effect.World *= zRotMat;
-
-                    
+                    effect.World = boneTransforms[mesh.ParentBone.Index] /* * worldMatrix*/;
 
                     //now rotate putter
-                    effect.World *= Matrix.CreateRotationY(xRot) /** Matrix.CreateRotationX(xRot)*/;
+                    //effect.World *= Matrix.CreateRotationX(xRot) /* * Matrix.CreateRotationX(xRot)*/;
+
+                    //now orient the putter right
+                    //effect.World *= zRotMat;
+
+
+
+
 
                     //first scale model
-                    effect.World *= scaleMat;
+                    //effect.World *= scaleMat;
 
                     //now translate the putter
-                    effect.World *= transMat;
+                    //effect.World *= transMat;
 
-                    
-                    effect.World *= Transform;
 
+                    //effect.World *= Transform;
+                    effect.World *= w2;
+                    //effect.World *= entity.WorldTransform;
                     if (push)
                     {
                         pushElapsed += gameTime.ElapsedGameTime.Milliseconds;
                         if (pushElapsed <= pushTimer)
                         {
                             pushRot += 0.01f;
-                            effect.World *= Matrix.CreateTranslation(new Vector3(pushRot, 0, 0));
+                            effect.World *= Matrix.CreateTranslation(new Vector3(pushRot, pushRot, 0) * forwardPos);
                         }
                         else
                         {
@@ -135,7 +194,7 @@ namespace GettingStartedDemo
                         }
                     }
 
-                    
+
                     effect.View = (Game as GettingStartedGame).Camera.ViewMatrix;
                     effect.Projection = (Game as GettingStartedGame).Camera.ProjectionMatrix;
 

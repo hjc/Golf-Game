@@ -125,3 +125,5 @@ C:\Users\Hayden\Documents\GitHub\Golf-Game\GettingStartedDemo\obj\x86\Release\Ge
 C:\Users\Hayden\Documents\GitHub\Golf-Game\GettingStartedDemo\obj\x86\Release\GettingStartedDemo.csproj.GenerateResource.Cache
 C:\Users\Hayden\Documents\GitHub\Golf-Game\GettingStartedDemo\obj\x86\Release\GettingStartedDemo.exe
 C:\Users\Hayden\Documents\GitHub\Golf-Game\GettingStartedDemo\obj\x86\Release\GettingStartedDemo.pdb
+C:\Users\hjc17_000\Documents\GettingStartedDemo\GettingStartedDemo\obj\x86\Release\GettingStartedDemo.PowerScore.resources
+C:\Users\hjc17_000\Documents\GettingStartedDemo\GettingStartedDemo\obj\x86\Release\GettingStartedDemo.csproj.GenerateResource.Cache
