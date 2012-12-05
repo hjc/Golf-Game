@@ -159,7 +159,8 @@ namespace GettingStartedDemo
             //model is static: should not be affected by gravity
             //Box putterHead = new Box(new Vector3(1, -13.5f, 2), 4f, 4f, 4f);
 
-            Box putterHead = new Box(new Vector3(1, 1, 1), 4f, 4f, 4f);
+            Box putterHead = new Box(new Vector3(-3.77f, -16.19f, 100.75f), 1f, 4f, 1f);
+            //Box putterHead = new Box(new Vector3(1, 1, 1), 4f, 4f, 4f);
             //StaticMesh putterHead = new StaticMesh(vertices, indices, new AffineTransform(new Vector3(0, -20, 0)));
 
            // putterHead.IsAffectedByGravity = false;

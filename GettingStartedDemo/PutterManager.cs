@@ -145,10 +145,13 @@ namespace GettingStartedDemo
             Matrix w = Matrix.CreateWorld(entity.Position, new Vector3(1, 0, 0), new Vector3(0, 1, 0));
 
 
+            //position the damn putter
+            Matrix w2 = Matrix.CreateScale(0.05f) * zRotMat * Matrix.CreateTranslation(entity.Position + new Vector3(0,0,-2));
 
-            Matrix w2 = Matrix.CreateScale(0.05f) * zRotMat * Matrix.CreateTranslation(entity.Position);
 
-            entity.WorldTransform *= Matrix.CreateScale(0.05f);
+
+            entity.WorldTransform *= Matrix.CreateScale(0.05f) * Matrix.CreateRotationX(xRot);
+            //entity.
             
             model.CopyAbsoluteBoneTransformsTo(boneTransforms);
             foreach (ModelMesh mesh in model.Meshes)
@@ -160,7 +163,7 @@ namespace GettingStartedDemo
                     effect.World = boneTransforms[mesh.ParentBone.Index] /* * worldMatrix*/;
 
                     //now rotate putter
-                    //effect.World *= Matrix.CreateRotationX(xRot) /* * Matrix.CreateRotationX(xRot)*/;
+                    effect.World *= Matrix.CreateRotationX(xRot) /* * Matrix.CreateRotationX(xRot)*/;
 
                     //now orient the putter right
                     //effect.World *= zRotMat;
