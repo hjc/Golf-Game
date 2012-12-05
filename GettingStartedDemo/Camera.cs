@@ -158,5 +158,10 @@ namespace GettingStartedDemo
             WorldMatrix = WorldMatrix * Matrix.CreateTranslation(Position);
             ViewMatrix = Matrix.Invert(WorldMatrix);
         }
+
+        public void setPosition(Vector3 newPos)
+        {
+            Position = newPos;
+        }
     }
 }

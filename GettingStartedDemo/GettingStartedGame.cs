@@ -9,6 +9,7 @@ using BEPUphysics.Entities;
 using BEPUphysics;
 using BEPUphysics.DataStructures;
 using BEPUphysics.NarrowPhaseSystems.Pairs;
+using System.Collections.Generic;
 
 
 namespace GettingStartedDemo
@@ -41,9 +42,6 @@ namespace GettingStartedDemo
         /// </summary>
         public Model PlaygroundModel;
 
-        //hold keyboard state for us
-        KeyboardState kbState = Keyboard.GetState();
-
         /// <summary>
         /// This manages all of our various levels.
         /// Will load their models initially and handle cycling through them
@@ -62,13 +60,10 @@ namespace GettingStartedDemo
                                          new Vector3(9.1f,   -16.95f, 7.5f),
                                          new Vector3(15.2f,  -13.7f,  6.1f),
                                          new Vector3(22.5f,  -10.2f,  5.2f)};
+        private int level = 0;
 
-#if XBOX360
-        /// <summary>
-        /// Contains the latest snapshot of the gamepad's input state.
-        /// </summary>
-        public GamePadState GamePadState;
-#else
+        public List<Entity> balls;
+
         /// <summary>
         /// Contains the latest snapshot of the keyboard's input state.
         /// </summary>
@@ -77,8 +72,6 @@ namespace GettingStartedDemo
         /// Contains the latest snapshot of the mouse's input state.
         /// </summary>
         public MouseState MouseState;
-#endif
-
 
 
         public GettingStartedGame()
@@ -158,6 +151,7 @@ namespace GettingStartedDemo
                 toAdd[i].LinearVelocity = Vector3.Zero;
                 //Add the new box to the simulation.
                 space.Add(toAdd[i]);
+                balls.Add(toAdd[i]);
 
 
 
@@ -221,9 +215,9 @@ namespace GettingStartedDemo
             Matrix[] transforms = new Matrix[Levels.Bones.Count];
             Levels.CopyAbsoluteBoneTransformsTo(transforms);
 
-            Model Putter;
+            /*Model Putter;
             Putter = Content.Load<Model>("putter");
-            AddModelLevel(Putter);
+            AddModelLevel(Putter);*/
           
            
             //Hook an event handler to an entity to handle some game logic.
@@ -281,6 +275,11 @@ namespace GettingStartedDemo
             // TODO: Unload any non ContentManager content here
         }
 
+        private void updateLevel()
+        {
+            Camera.setPosition(startingPos
+        }
+
         /// <summary>
         /// Allows the game to run logic such as updating the world,
         /// checking for collisions, gathering input, and playing audio.
@@ -320,7 +319,7 @@ namespace GettingStartedDemo
 
             #endregion
 
-            kbState = Keyboard.GetState();
+            //kbState = Keyboard.GetState();
 
             //add code to increase power, rotate putter
 
