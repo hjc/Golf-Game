@@ -10,6 +10,7 @@ using BEPUphysics;
 using BEPUphysics.DataStructures;
 using BEPUphysics.NarrowPhaseSystems.Pairs;
 using BEPUphysics.CollisionShapes;
+using BEPUphysics.Paths.PathFollowing;
 
 
 namespace GettingStartedDemo
@@ -175,6 +176,11 @@ namespace GettingStartedDemo
             //Sphere putterHead = new Sphere(Vector3.Zero, 1f);
 
             space.Add(putterHead);
+
+            EntityRotator rot = new EntityRotator(putterHead);
+
+            space.Add(rot);
+
             //putterHead.BecomeKinematic();
             //putterHead.CollisionInformation.Events.InitialCollisionDetected += HandleCollision;
 
@@ -187,7 +193,7 @@ namespace GettingStartedDemo
             //space.Add(mesh);
             //this.puttMan = new PutterManager(putterHead, model, mesh.WorldTransform.Matrix, Matrix.CreateScale(0.05f), Matrix.CreateTranslation(new Vector3(1, 1, 1)), this);
             //this.puttMan = new PutterManager(putterHead, model, Matrix.Identity, Matrix.Identity, Matrix.Identity, this);
-            this.puttMan = new PutterManager(putterHead, model, Matrix.Identity, Matrix.CreateScale(0.05f), Matrix.CreateTranslation(new Vector3(-5f, -5f, -5f)), this);
+            this.puttMan = new PutterManager(putterHead, model, Matrix.Identity, Matrix.CreateScale(0.05f), Matrix.CreateTranslation(new Vector3(-5f, -5f, -5f)), rot, this);
             //this.puttMan = new PutterManager(putterHead, model, Matrix.Identity, Matrix.Identity, Matrix.Identity, this);
 
             //EntityModel em = new EntityModel(putterHead, model, putterHead.WorldTransform, this);

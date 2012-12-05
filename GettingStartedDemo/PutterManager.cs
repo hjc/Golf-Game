@@ -13,6 +13,7 @@ using BEPUphysics.Collidables;
 using BEPUphysics.Collidables.MobileCollidables;
 using BEPUphysics.Entities.Prefabs;
 using BEPUphysics.MathExtensions;
+using BEPUphysics.Paths.PathFollowing;
 
 
 namespace GettingStartedDemo 
@@ -55,6 +56,12 @@ namespace GettingStartedDemo
         /// </summary>
         private Vector3 forwardPos = new Vector3(0.5f, 0.5f, 0);
 
+        /// <summary>
+        /// Rotate our god damned entity
+        /// </summary>
+        /// 
+        EntityRotator er;
+
          /// <summary>
         /// Creates a new EntityModel.
         /// </summary>
@@ -62,7 +69,7 @@ namespace GettingStartedDemo
         /// <param name="model">Graphical representation to use for the entity.</param>
         /// <param name="transform">Base transformation to apply to the model before moving to the entity.</param>
         /// <param name="game">Game to which this component will belong.</param>
-        public PutterManager(Entity entity, Model model, Matrix transform, Matrix scale, Matrix translate, Game game)
+        public PutterManager(Entity entity, Model model, Matrix transform, Matrix scale, Matrix translate, EntityRotator ER, Game game)
             : base(game)
         {
             this.entity = entity;
@@ -70,6 +77,10 @@ namespace GettingStartedDemo
             this.Transform = transform;
             this.scaleMat = scale;
             this.transMat = translate;
+
+            this.er = ER;
+
+            
 
             //Collect any bone transformations in the model itself.
             //The default cube model doesn't have any, but this allows the EntityModel to work with more complicated shapes.
@@ -151,7 +162,10 @@ namespace GettingStartedDemo
 
 
             entity.WorldTransform *= Matrix.CreateScale(0.05f) * Matrix.CreateRotationX(xRot);
-            //entity.
+
+            Quaternion q = new Quaternion(new Vector3(xRot,0,0), 1f);
+
+            er.TargetOrientation = Quaternion.Concatenate(entity.Orientation, q);
             
             model.CopyAbsoluteBoneTransformsTo(boneTransforms);
             foreach (ModelMesh mesh in model.Meshes)
