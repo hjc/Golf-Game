@@ -42,26 +42,29 @@ namespace GettingStartedDemo
         /// </summary>
         public Model PlaygroundModel;
 
-        /// <summary>
-        /// This manages all of our various levels.
-        /// Will load their models initially and handle cycling through them
-        ///  and loading them into the game.
-        /// Only need one
-        /// </summary>
-        protected LevelManager LevelMan;
-
         float elapsedTime = 0;
 
         /// Starting positions
-        public Vector3[] startingPos = { new Vector3(-3.77f, -16.19f, 10.75f),
+        /*public Vector3[] startingPos = { new Vector3(-3.77f, -16.19f, 10.75f),
                                          new Vector3(0.05f,  -17.14f, 4.25f),
                                          new Vector3(3.25f,  -17.17f, 4.25f),
                                          new Vector3(5.75f,  -15.75f, 6.1f),
                                          new Vector3(9.1f,   -16.95f, 7.5f),
                                          new Vector3(15.2f,  -13.7f,  6.1f),
-                                         new Vector3(22.5f,  -10.2f,  5.2f)};
+                                         new Vector3(22.5f,  -10.2f,  5.2f)};*/
+
+        public Vector3[] startingPos = { new Vector3(-3.77f, -16.19f, 10.70f),
+                                         new Vector3(0.05f,  -17.14f, 4.20f),
+                                         new Vector3(3.25f,  -17.17f, 4.20f),
+                                         new Vector3(5.75f,  -15.75f, 6.1f),
+                                         new Vector3(9.1f,   -16.95f, 7.45f),
+                                         new Vector3(15.2f,  -13.7f,  6.05f),
+                                         new Vector3(22.5f,  -10.2f,  5.15f)};
+
+        //var to hold our current level, used to fetch balls
         private int level = 0;
 
+        // list to hold all our balls
         public List<Entity> balls;
 
         /// <summary>
@@ -73,6 +76,17 @@ namespace GettingStartedDemo
         /// </summary>
         public MouseState MouseState;
 
+        // camera offset
+        private static Vector3 backOffset = new Vector3(0, -2, -2);
+
+        //prevent space bar spam
+        private float noLevelSpam = 0;
+        private float noLevelSpamCap = 1000;
+
+        //prevent level reset spam
+        private float noResetSpam = 0;
+        private float noResetSpamCap = 1000;
+
 
         public GettingStartedGame()
         {
@@ -80,7 +94,6 @@ namespace GettingStartedDemo
             graphics.PreferredBackBufferWidth = 800;
             graphics.PreferredBackBufferHeight = 600;
             Content.RootDirectory = "Content";
-            this.LevelMan = new LevelManager();
         }
 
         /// <summary>
@@ -93,6 +106,10 @@ namespace GettingStartedDemo
         {
             //Setup the camera.
             Camera = new Camera(this, new Vector3(0, 3, 10), 5);
+
+            
+
+            this.balls = new List<Entity>();
 
             
 
@@ -181,28 +198,6 @@ namespace GettingStartedDemo
             Sphere ground = new Sphere((Vector3.Zero), 1, 30);
             space.Add(ground);
 
-
-            //Now that we have something to fall on, make a few more boxes.
-            //These need to be dynamic, so give them a mass- in this case, 1 will be fine.
-            //space.Add(new Box(new Vector3(0, 4, 0), 1, 1, 1, 1));
-            //space.Add(new Box(new Vector3(0, 8, 0), 1, 1, 1, 1));
-            //space.Add(new Sphere(new Vector3(3,0,2), 1,1));
-            //Create a physical environment from a triangle mesh.
-            //First, collect the the mesh data from the model using a helper function.
-            //This special kind of vertex inherits from the TriangleMeshVertex and optionally includes
-            //friction/bounciness data.
-            //The StaticTriangleGroup requires that this special vertex type is used in lieu of a normal TriangleMeshVertex array.
-          //  Vector3[] vertices;
-           // int[] indices;
-           // TriangleMesh.GetVerticesAndIndicesFromModel(Snowman, out vertices, out indices);
-            //Give the mesh information to a new StaticMesh.  
-            //Give it a transformation which scoots it down below the kinematic box entity we created earlier.
-            //var mesh = new StaticMesh(vertices, indices, new AffineTransform(new Vector3(0, -20, 0)));
-
-            //Add it to the space!
-            //space.Add(mesh);
-            //Make it visible too.
-            //Components.Add(new StaticModel(Snowman, mesh.WorldTransform.Matrix, this));
             
 
             //Robert 2 : ADD YOUR PREVIOUSLY DECLARED MODeL HERE using AddModelLevel: 
@@ -214,17 +209,6 @@ namespace GettingStartedDemo
 
             Matrix[] transforms = new Matrix[Levels.Bones.Count];
             Levels.CopyAbsoluteBoneTransformsTo(transforms);
-
-            /*Model Putter;
-            Putter = Content.Load<Model>("putter");
-            AddModelLevel(Putter);*/
-          
-           
-            //Hook an event handler to an entity to handle some game logic.
-            //Refer to the Entity Events documentation for more information.
-            /*Sphere deleterBox = new Sphere(new Vector3(5, 2, 0), 3);
-            space.Add(deleterBox);
-            deleterBox.CollisionInformation.Events.InitialCollisionDetected += HandleCollision;*/
 
 
             //Go through the list of entities in the space and create a graphical representation for them.
@@ -241,7 +225,8 @@ namespace GettingStartedDemo
                     e.Tag = model; //set the object tag of this entity to the model so that it's easy to delete the graphics component later if the entity is removed.
                 }
             }
-            //this.LevelMan.setupCurrentLevel();
+
+            setupLevel();
         }
 
         /// <summary>
@@ -275,9 +260,44 @@ namespace GettingStartedDemo
             // TODO: Unload any non ContentManager content here
         }
 
+        //sets up our next level
+        private void setupLevel()
+        {
+            //Camera.setWorldMatrix(Matrix.CreateLookAt(Camera.Position, startingPos[level], Vector3.Up));
+            Camera.setPosition(balls[level].Position - backOffset, startingPos[level]);
+            balls[level].Mass = 1f;
+        }
+
+        //TODO: USE A STROKE WHEN YOU MULLIGAN
+        private void resetLevel()
+        {
+            //store ref to old ball
+            Entity t = balls[level];
+            
+            //create new ball on physics space, store it
+            Sphere newBall = new Sphere(startingPos[level], 0.2f);
+            newBall.LinearVelocity = Vector3.Zero;
+            space.Add(newBall);
+            balls[level] = newBall;
+
+            //create new model
+            EntityModel model = new EntityModel(newBall, CubeModel, Matrix.CreateScale(0.2f), this);
+            Components.Add(model);
+            balls[level].Tag = model;
+
+            //clean up old ball
+            space.Remove(balls[level]);
+
+            setupLevel();
+        }
+
+        //this moves us to the next level and then calls setup level
         private void updateLevel()
         {
-            Camera.setPosition(startingPos
+            level++;
+            if (level >= balls.Count)
+                level = 0;
+            setupLevel();
         }
 
         /// <summary>
@@ -295,11 +315,14 @@ namespace GettingStartedDemo
                 Exit();
 
             //Update the camera.
-            Camera.Update((float)gameTime.ElapsedGameTime.TotalSeconds);
+            Camera.Update((float)gameTime.ElapsedGameTime.TotalSeconds, gameTime);
 
-            #region Block shooting
+            #region CONTROLS
 
-            elapsedTime += gameTime.ElapsedGameTime.Milliseconds;
+            float ms = gameTime.ElapsedGameTime.Milliseconds;
+
+            //deal with shooting the balls
+            elapsedTime += ms;
             if (MouseState.LeftButton == ButtonState.Pressed)
             {
                 
@@ -308,14 +331,38 @@ namespace GettingStartedDemo
                // If the user is clicking, start firing some boxes.
                // First, create a new dynamic box at the camera's location.
 
-
                 if(elapsedTime >=1000)
                 {
-           
-                    
+                   balls[level].ApplyImpulse(balls[level].Position, new Vector3(-Camera.ViewMatrix.Forward.X, Camera.ViewMatrix.Forward.Y, Camera.ViewMatrix.Forward.Z) * 10);
                    elapsedTime = 0;
+                   Camera.ballMotionOn();
                  }
             }
+
+            //deal with going to next level
+            noLevelSpam += ms;
+            if (KeyboardState.IsKeyDown(Keys.Space))
+            {
+                if (noLevelSpam >= noLevelSpamCap) {
+                    noLevelSpam = 0;
+                    updateLevel();
+                    Camera.ballMotionOff();
+                }
+
+            }
+
+            //deal with resetting the ball
+            noResetSpam += ms;
+            if (KeyboardState.IsKeyDown(Keys.P))
+            {
+                if (noResetSpam >= noResetSpamCap)
+                {
+                    noResetSpam = 0;
+                    resetLevel();
+                    Camera.ballMotionOff();
+                }
+            }
+
 
             #endregion
 
@@ -361,6 +408,11 @@ namespace GettingStartedDemo
         public void addStaticModel(Model m, StaticMesh mesh)
         {
             Components.Add(new StaticModel(m, mesh.WorldTransform.Matrix, this));
+        }
+
+        public int getLevel()
+        {
+            return level;
         }
     }
 }
