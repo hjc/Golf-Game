@@ -126,7 +126,6 @@
     <Compile Include="PowerScore.Designer.cs">
       <DependentUpon>PowerScore.cs</DependentUpon>
     </Compile>
-    <Compile Include="LevelManager.cs" />
     <Compile Include="StaticModel.cs" />
     <Compile Include="EntityModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

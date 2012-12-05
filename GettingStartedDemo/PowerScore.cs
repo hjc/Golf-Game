@@ -23,6 +23,11 @@ namespace GettingStartedDemo
         {
             lblstroke.Text = "Score: " + stroke;
         }
+
+        public void show_par(int par)
+        {
+            parLabel.Text = "Par: " + par;
+        }
         
     }
 }

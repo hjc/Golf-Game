@@ -30,6 +30,7 @@
         {
             this.lblpower = new System.Windows.Forms.Label();
             this.lblstroke = new System.Windows.Forms.Label();
+            this.parLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblpower
@@ -50,11 +51,21 @@
             this.lblstroke.TabIndex = 1;
             this.lblstroke.Text = "score";
             // 
+            // parLabel
+            // 
+            this.parLabel.Font = new System.Drawing.Font("Quartz MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.parLabel.Location = new System.Drawing.Point(12, 126);
+            this.parLabel.Name = "parLabel";
+            this.parLabel.Size = new System.Drawing.Size(219, 52);
+            this.parLabel.TabIndex = 2;
+            this.parLabel.Text = "score";
+            // 
             // PowerScore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 119);
+            this.ClientSize = new System.Drawing.Size(284, 203);
+            this.Controls.Add(this.parLabel);
             this.Controls.Add(this.lblstroke);
             this.Controls.Add(this.lblpower);
             this.Name = "PowerScore";
@@ -67,5 +78,6 @@
 
         private System.Windows.Forms.Label lblpower;
         private System.Windows.Forms.Label lblstroke;
+        private System.Windows.Forms.Label parLabel;
     }
 }
