@@ -53,6 +53,16 @@ namespace GettingStartedDemo
         protected LevelManager LevelMan;
 
         float elapsedTime = 0;
+
+        /// Starting positions
+        public Vector3[] startingPos = { new Vector3(-3.77f, -16.19f, 10.75f),
+                                         new Vector3(0.05f,  -17.14f, 4.25f),
+                                         new Vector3(3.25f,  -17.17f, 4.25f),
+                                         new Vector3(5.75f,  -15.75f, 6.1f),
+                                         new Vector3(9.1f,   -16.95f, 7.5f),
+                                         new Vector3(15.2f,  -13.7f,  6.1f),
+                                         new Vector3(22.5f,  -10.2f,  5.2f)};
+
 #if XBOX360
         /// <summary>
         /// Contains the latest snapshot of the gamepad's input state.
@@ -90,6 +100,8 @@ namespace GettingStartedDemo
         {
             //Setup the camera.
             Camera = new Camera(this, new Vector3(0, 3, 10), 5);
+
+            
 
             base.Initialize();
         }
@@ -131,6 +143,32 @@ namespace GettingStartedDemo
             
             //Construct a new space for the physics simulation to occur within.
             space = new Space();
+
+            Sphere[] toAdd = new Sphere[7];
+
+            // Initialize the game: one ball on each court.
+            for (int i = 0; i < 7; i++)
+            {
+                toAdd[i] = new Sphere(startingPos[i], 0.2f);
+
+                //Set the velocity of the new box to fly in the direction the camera is pointing.
+                //Entities have a whole bunch of properties that can be read from and written to.
+                //Try looking around in the entity's available properties to get an idea of what is available.
+                // toAdd.LinearVelocity = Camera.WorldMatrix.Forward * 10;
+                toAdd[i].LinearVelocity = Vector3.Zero;
+                //Add the new box to the simulation.
+                space.Add(toAdd[i]);
+
+
+
+                // Add a graphical representation of the box to the drawable game components.
+                //StaticModel model = new StaticModel(CubeModel, Matrix.CreateScale(0.5f), this);
+                EntityModel model = new EntityModel(toAdd[i], CubeModel, Matrix.CreateScale(0.2f), this);
+
+                Components.Add(model);
+                toAdd[i].Tag = model;  //set the object tag of this entity to the model so that it's easy to delete the graphics component later if the entity is removed.
+            }
+
 
             //Set the gravity of the simulation by accessing the simulation settings of the space.
             //It defaults to (0,0,0); this changes it to an 'earth like' gravity.
@@ -270,24 +308,12 @@ namespace GettingStartedDemo
 
                // If the user is clicking, start firing some boxes.
                // First, create a new dynamic box at the camera's location.
+
+
                 if(elapsedTime >=1000)
                 {
-                    Sphere toAdd = new Sphere(Camera.Position, 0.2f, 1);
-                   
-                
-                    //Set the velocity of the new box to fly in the direction the camera is pointing.
-                    //Entities have a whole bunch of properties that can be read from and written to.
-                    //Try looking around in the entity's available properties to get an idea of what is available.
-                    toAdd.LinearVelocity = Camera.WorldMatrix.Forward * 10;
-                    //Add the new box to the simulation.
-                    space.Add(toAdd);
-
-                   // Add a graphical representation of the box to the drawable game components.
-                    //StaticModel model = new StaticModel(CubeModel, Matrix.CreateScale(0.5f), this);
-                    EntityModel model = new EntityModel(toAdd, CubeModel, Matrix.CreateScale(0.1f), this);
-                    Components.Add(model);
-                    toAdd.Tag = model;  //set the object tag of this entity to the model so that it's easy to delete the graphics component later if the entity is removed.
-                
+           
+                    
                    elapsedTime = 0;
                  }
             }
