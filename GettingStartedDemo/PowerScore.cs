@@ -28,6 +28,11 @@ namespace GettingStartedDemo
         {
             parLabel.Text = "Par: " + par;
         }
+
+        public void show_stroke_per_level(int strokes)
+        {
+            currentStrokeLabel.Text = "Strokes: " + strokes;
+        }
         
     }
 }

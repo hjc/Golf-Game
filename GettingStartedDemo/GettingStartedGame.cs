@@ -72,6 +72,8 @@ namespace GettingStartedDemo
 
         public int[] pars = { 1, 7, 2, 4, 5, 6, 7 };
 
+        public int[] strokesThisLevel = { 0, 0, 0, 0, 0, 0, 0 };
+
         //hold our components for all balls
         public List<EntityModel> ballCompos;
 
@@ -289,8 +291,9 @@ namespace GettingStartedDemo
         {
             //Camera.setWorldMatrix(Matrix.CreateLookAt(Camera.Position, startingPos[level], Vector3.Up));
             Camera.setPosition(balls[level].Position - backOffset, balls[level].Position);
-            balls[level].Mass = 1f;
+            balls[level].Mass = 1.0f;
             powerscore.show_par(pars[level]);
+            powerscore.show_stroke_per_level(strokesThisLevel[level]);
         }
 
         //place ball in original place and take two strokes
@@ -319,8 +322,11 @@ namespace GettingStartedDemo
 
             //two strokes for mulligan!
             strokecount += 2;
-
+            strokesThisLevel[level] += 2;
             powerscore.show_stroke(strokecount);
+            powerscore.show_stroke_per_level(strokesThisLevel[level]);
+
+            
 
             setupLevel();
         }
@@ -398,7 +404,9 @@ namespace GettingStartedDemo
                     elapsedTime = 0;
                     Camera.ballMotionOn();
                     strokecount++;
+                    strokesThisLevel[level] += 1;
                     powerscore.show_stroke(strokecount);
+                    powerscore.show_stroke_per_level(strokesThisLevel[level]);
                  }
             }
 

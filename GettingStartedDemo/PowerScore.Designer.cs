@@ -31,6 +31,7 @@
             this.lblpower = new System.Windows.Forms.Label();
             this.lblstroke = new System.Windows.Forms.Label();
             this.parLabel = new System.Windows.Forms.Label();
+            this.currentStrokeLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblpower
@@ -60,11 +61,21 @@
             this.parLabel.TabIndex = 2;
             this.parLabel.Text = "score";
             // 
+            // currentStrokeLabel
+            // 
+            this.currentStrokeLabel.Font = new System.Drawing.Font("Quartz MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.currentStrokeLabel.Location = new System.Drawing.Point(12, 190);
+            this.currentStrokeLabel.Name = "currentStrokeLabel";
+            this.currentStrokeLabel.Size = new System.Drawing.Size(219, 52);
+            this.currentStrokeLabel.TabIndex = 3;
+            this.currentStrokeLabel.Text = "Strokes:";
+            // 
             // PowerScore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 203);
+            this.ClientSize = new System.Drawing.Size(284, 272);
+            this.Controls.Add(this.currentStrokeLabel);
             this.Controls.Add(this.parLabel);
             this.Controls.Add(this.lblstroke);
             this.Controls.Add(this.lblpower);
@@ -79,5 +90,6 @@
         private System.Windows.Forms.Label lblpower;
         private System.Windows.Forms.Label lblstroke;
         private System.Windows.Forms.Label parLabel;
+        private System.Windows.Forms.Label currentStrokeLabel;
     }
 }

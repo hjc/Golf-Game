@@ -202,7 +202,9 @@ namespace GettingStartedDemo
             {
                 int level = Game.getLevel();
                 Vector3 linVel = Game.balls[level].LinearVelocity;
-                if (Math.Abs(linVel.X) < 0.5 && Math.Abs(linVel.Y) < 0.5 && Math.Abs(linVel.Z) < 0.5)
+                Vector3 linMo = Game.balls[level].LinearMomentum;
+                if ((Math.Abs(linVel.X) < 0.5 && Math.Abs(linVel.Y) < 0.5 && Math.Abs(linVel.Z) < 0.5)
+                    && (Math.Abs(linMo.X) < 0.05 && Math.Abs(linMo.Y) < 0.05 && Math.Abs(linMo.Z) < 0.05))
                 {
                     Game.balls[level].LinearVelocity = Vector3.Zero;
                     inMotion = false;
